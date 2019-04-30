@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+  <!-- //jq ui -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/ui/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/stylesheets/jq-ui.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center" id="title">Maths Tution</h1>
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-4">
+          <div class="card text-center">
+            <img class="cardimg" src="https://img.icons8.com/color/480/000000/administrator-male.png">
+            <div class="card-body">
+              <h5 class="card-title">Mr. Anthony Raj</h5>
+              <p class="card-text">Maths Teacher</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5">
+          <div class="break"></div>
+          <span class="head1">Tution Method : </span>
+          <span class="head2 "> Skype <img src="https://img.icons8.com/color/48/000000/skype.png"> </span>
+          <div class="break"></div>
+          <span class="head1">Materials Needed: </span>
+          <span>
+            <br>
+            <ol class="uls">
+              <li>Skype account</li>
+              <li>Suitable Head-Pones with Mic</li>
+              <li>Note Book and Pen</li>
+            </ol>
+          </span>
+          <div class="break"></div>
+          <span class="head1">Classes :</span>
+          <span class="head2">6 to 10 th grade </span>
+        </div>
+      </div>
+    </div>
+    <div class="form">
+      <h4 class="text-center">Select Your Classes</h4>
+      <br>
+      <form action="/" method="post" autocomplete="off">
+        <div class="row">
+          <div class="col text-left">
+            <div class="form-group">
+              <label for="year" class="col-form-label">Choose Year</label>
+              <select class="form-control is-valid" id="year">
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="topics" class="col-form-label">Choose Topics</label>
+              <select class="form-control is-valid" id="topics">
+                <option value="Algebra">Algebra</option>
+                <option value="Trignomentry">Trignomentry</option>
+              </select>
+              <div class="valid-feedback">
+                  Looks good!
+                </div>
+            </div>
+            <label for="payment">Payment</label>
+            <input type="text" class="form-control " readonly id="payment" placeholder="PayPal" value="PayPal" required>
+          </div>
+          <div class="col">
+            <div class="input-group date" data-provide="datepicker">
+              <input type="text" class="form-control datepicker" placeholder="DD-MM-YYY" id="date">
+              <div class="input-group-append">
+                <span class="input-group-text"><img src="https://img.icons8.com/metro/26/000000/planner.png"></span>
+              </div>
+              <div class="valid-feedback">
+                Looks Good
+              </div>
+              <div class="invalid-feedback">
+                Give correct Date
+              </div>
+            </div>
+            <br>
+            <h6 class="text-center">Booked Dates</h6>
+
+            <span style="color:red;"> * note :</span> <span> These Days you Can't Book for class Because alredy Booked
+              or May be Holiday</span>
+            <br>
+            <br>
+            <div class="text-center srolll">
+              <table class="table booked">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="myname">First name</label>
+              <input type="text" class="form-control " id="myname" placeholder="First name" value="" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Should Be Above 4
+              </div>
+              <label for="suname">Sur name</label>
+              <input type="text" class="form-control " id="suname" placeholder="Sur name" value="" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Should not Be Empty
+              </div>
+              <label for="grade">Grade</label>
+              <input type="number" class="form-control " id="grade" placeholder="6th Grade/,.." value="" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Should Be Above 5
+              </div>
+              <label for="phn">Phone</label>
+              <input type="text" class="form-control " id="phn" placeholder="Enter with Contry code ex +91 987654321"
+                value="" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Enter Valid Phone Number
+              </div>
+              <label for="email">Email</label>
+              <input type="email" class="form-control " id="email" placeholder="myname12@gmail.com" value="" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Enter Valid Emial Address
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block"> Applay </button>
+      </form>
+    </div>
+  </div>
+  <footer></footer>
+</body>
+<script src="/javascripts/home.js"></script>
+
+</html>

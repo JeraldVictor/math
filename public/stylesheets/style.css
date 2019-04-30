@@ -1,0 +1,33 @@
+#title{
+    margin-top: 20px;
+    font-family: 'Gugi', cursive;
+}
+
+.break{
+    padding: 20px;
+}
+
+.cardimg{
+    padding-left: 20%;
+    width: 250px;
+    height: 300px;
+}
+.head1{
+    font-size: 30px;
+    font-weight: bold;
+}
+.head2{
+    padding-left: 5%;
+    font-size: 25px;
+}
+.uls{
+    margin-left: 5%;;
+    font-size: 20px;
+}
+footer{
+    padding: 10%;
+}
+.srolll {
+    height: 150px;
+    overflow-y: scroll;
+}
