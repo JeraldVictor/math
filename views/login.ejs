@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <style>
+    .jumbotron{
+        background: orange;
+    }
+    .cent{
+        max-width: 400px;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="break-top"></div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center" id="title">Maths Tution</h1>
+            <br>
+            <h4 class="text-center under">Login Page</h4>
+            <br>
+            <div class="container cent">
+                    <% if(msg!=null){%>
+                        <div id="flash" class="text-center alert alert-danger">
+                            <%=msg%>
+                        </div>
+                    <%}%>
+                    <br>
+                <form method="POST" action="/login" autocomplete="off">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" name="pass" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">Login</button>
+                  </form>                  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

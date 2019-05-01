@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DashBoard</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="tr">
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+        <h1 class="text-center" id="title">Maths Tution</h1>
+    </div>
+    <div class="main">
+        <div class="row">
+            <div class="col-3" id="scrll">
+                <p class="text-center"> <strong> Today's Class</strong></p>
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">time</th>
+                            <th scope="col">Student</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(let i=0;i<tu.length ; i++){%>
+                        <tr>
+                            <th scope="row"><%=i+1%></th>
+                            <td>
+                                <%=tu[i].time%>
+                            </td>
+                            <td><%=tu[i].fname%></td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6">
+                <%if(user.length < 1){%>
+                    <div class="text-center alert alert-info" role="alert">
+                        No Pending Aproval
+                    </div>
+                <%}else{%>
+                    
+                <form action="/update" method="post" autocomplete="off">
+                <input type="text" name="id" id="id" value="" style="display:none">
+                <div class="form-group">
+                    <label for="list">Pending List</label>
+                    <select class="form-control" id="list">
+                        <%for(let i = 0 ;i<user.length;i++ ){%>
+                            <option value="<%=user[i].id%>" ><%=user[i].fname%></option>
+                        <%}%>
+                    </select>
+                </div>
+                <div class="">
+                    <div class="form-group">
+                        <label for="name">Student Name</label>
+                        <input type="text" class="form-control" name="name" id="name" value="" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Time student Applied</label>
+                        <input type="text" value="" name="date" id="date" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="timing">Change Time To Your Time Table</label>
+                        <input type="text" value="" name="timing" id="timing" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" class="form-control" name="status">
+                            <option value="pending">Pending</option>
+                            <option value="aproved">Aproved</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit"  class="btn btn-warning btn-lg btn-block">Update</button>
+            </form>
+        <%}%>
+            </div>
+            <div class="col-3" id="scrll">
+                <p class="text-center"> <strong>Aproved Students</strong></p>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Detials</th>
+                    </thead>
+                    <tbody>
+                        <%for(let i=0;i<aproved.length ; i++){%>
+                            <tr>
+                                <th scope="row"><%=i+1%></th>
+                                <td><%=aproved[i].fname%></td>
+                                <td><a href="/api/view/<%=aproved[i].uid%>" class="btn btn-success">view</a></td>
+                            </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/javascripts/dash.js"></script>
+</body>
+
+</html>

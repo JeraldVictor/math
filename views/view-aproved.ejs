@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <div class="row text-center">
+            <div class="col"><a href="/home" class="btn btn-warning">Home</a></div>
+            <div class="col"><h1 class="text-center" id="title">Maths Tution</h1></div>
+            <div class="col"><a href="#" class="btn btn-warning">All Users</a></div>
+        </div>
+            
+           
+        <div class="jumbotron">
+                <h4 class="text-center" style="text-transform:capitalize;"><%=list.fname%> <%=list.lname%></h4>
+            <br>
+                <div class="row">
+                <div class="col form-group">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" readonly value="<%=list.fname%>" id="">
+                </div>
+                <div class="col form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control" readonly value="<%=list.lname%>" id="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="">Skype Id</label>
+                    <input type="text" class="form-control" readonly value="<%=list.skypeid%>" id="">
+                </div>
+                <div class="col form-group">
+                    <label for="">Email Id</label>
+                    <input type="text" class="form-control" readonly value="<%=list.email%>" id="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="">Phone Number</label>
+                    <input type="text" class="form-control" readonly value="<%=list.phn%>" id="">
+                </div>
+                <div class="col form-group">
+                    <label for="">Year</label>
+                    <input type="text" class="form-control" readonly value="<%=list.year%>" id="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

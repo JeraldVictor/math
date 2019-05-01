@@ -4,21 +4,30 @@ $('.datepicker').datepicker({
 
   $("#date").on("change",(value)=>{
       let gdate = $("#date").val();
-      console.log(gdate);
       gdate = new Date(gdate);
-    // console.log( gdate , new Date() )
     if(gdate > new Date()){
-        $("#date").removeClass("is-invalid");
-        $("#date").addClass("is-valid");
-        let datearray = $("#date").val()
-        datearray=datearray.split("/");
-        let newdate = datearray[1] + '-' + datearray[0] + '-' + datearray[2];
+        let newdd = $("#date").val()
+        newdd=newdd.split("/");
+        let newdate = newdd[1] + '-' + newdd[0] + '-' + newdd[2];
+        console.log(newdate)
         $("#date").val(newdate)
         $.ajax({
-            type: "GET",
-            url: "/date/"+newdate
+          type: "GET",
+          url: "/avilabe"
         }).done ((data) => {
-            console.log( "from ajax",data);
+            for(let i =0 ;i< data.length ; i++){
+              let datearray =data[i];
+              datearray=datearray.split("-");
+              datearray = datearray[0] + '-' + datearray[1] + '-' + datearray[2];
+              if( datearray == newdate){
+                $("#date").removeClass("is-valid");
+                $("#date").addClass("is-invalid");
+                break;
+              }else{
+                $("#date").removeClass("is-invalid");
+                $("#date").addClass("is-valid");
+              }
+          }
         });
     }else{
         $("#date").removeClass("is-valid");
@@ -32,13 +41,10 @@ $('.datepicker').datepicker({
         type: "GET",
         url: "/avilabe"
     }).done ((data)=>{
-        // console.log( "from ajax ",data);
-        
         for(let i =0 ;i< data.length ; i++){
             let datearray =data[i];
-            datearray=datearray.split("/");
+            datearray=datearray.split("-");
             datearray = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
-            // console.log(datearray)
             datearray = new Date(datearray)
             if( datearray >= new Date()){
                 $(".booked > tbody:last-child").append('<tr><td>'+data[i]+"</td></tr>")
@@ -46,7 +52,6 @@ $('.datepicker').datepicker({
         }
     });
   })
-
 
 
   // form validation
@@ -88,8 +93,6 @@ $('.datepicker').datepicker({
     var patt1 = /\D/g;
     let result = ""
     result = name.match(patt1)
-    // console.log("contains  ",result)
-    // console.log(name[0],name)
     if(name.length >=5 && result == null ){
       $("#phn").removeClass("is-invalid")
       $("#phn").addClass("is-valid")

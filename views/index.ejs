@@ -24,6 +24,10 @@
               <h5 class="card-title">Mr. Anthony Raj</h5>
               <p class="card-text">Maths Teacher</p>
             </div>
+            <div class="container">
+                <a class="btn btn-dark" href="/login"> Login Page </a>
+            </div>
+            <br>
           </div>
         </div>
         <div class="col-2"></div>
@@ -52,10 +56,10 @@
       <br>
       <form action="/" method="post" autocomplete="off">
         <div class="row">
-          <div class="col text-left">
+          <div class="col">
             <div class="form-group">
               <label for="year" class="col-form-label">Choose Year</label>
-              <select class="form-control is-valid" id="year">
+              <select class="form-control is-valid" id="year" name="yr">
                 <option>6</option>
                 <option>7</option>
                 <option>8</option>
@@ -68,7 +72,7 @@
             </div>
             <div class="form-group">
               <label for="topics" class="col-form-label">Choose Topics</label>
-              <select class="form-control is-valid" id="topics">
+              <select class="form-control is-valid" id="topics" name="topic">
                 <option value="Algebra">Algebra</option>
                 <option value="Trignomentry">Trignomentry</option>
               </select>
@@ -76,12 +80,29 @@
                   Looks good!
                 </div>
             </div>
-            <label for="payment">Payment</label>
-            <input type="text" class="form-control " readonly id="payment" placeholder="PayPal" value="PayPal" required>
-          </div>
+            <div class="form-group">
+              <label for="syllabus">Syllabus</label>
+              <select class="form-control is-valid" id="topics" name="syllabus">
+                <option value="tn">TN State Board</option>
+                <option value="cbsc">CBSC</option>
+                <option value="igse">IGSE</option>
+              </select>
+              <div class="valid-feedback">
+                  Looks good!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="payment">Payment</label>
+                <input type="text" name="payment" class="form-control " readonly id="payment" placeholder="PayPal" value="PayPal" required>    
+            </div>
+            <div class="form-group">
+                <label for="skypeid">Skype ID</label>
+                <input type="text" placeholder="your skype id" name="skypeid" class="form-control" required>    
+            </div>
+            </div>
           <div class="col">
             <div class="input-group date" data-provide="datepicker">
-              <input type="text" class="form-control datepicker" placeholder="DD-MM-YYY" id="date">
+              <input required type="text" name="date" class="form-control datepicker" placeholder="DD-MM-YYY" id="date">
               <div class="input-group-append">
                 <span class="input-group-text"><img src="https://img.icons8.com/metro/26/000000/planner.png"></span>
               </div>
@@ -108,40 +129,46 @@
           <div class="col">
             <div class="form-group">
               <label for="myname">First name</label>
-              <input type="text" class="form-control " id="myname" placeholder="First name" value="" required>
+              <input type="text" class="form-control " id="myname" placeholder="First name" name="fname" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
                 Should Be Above 4
               </div>
+            </div>
+            <div class="form-group">
               <label for="suname">Sur name</label>
-              <input type="text" class="form-control " id="suname" placeholder="Sur name" value="" required>
+              <input type="text" class="form-control " id="suname" placeholder="Sur name" name="lname" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
                 Should not Be Empty
               </div>
-              <label for="grade">Grade</label>
-              <input type="number" class="form-control " id="grade" placeholder="6th Grade/,.." value="" required>
+            </div>
+            <div class="form-group">
+              <!-- <label for="grade">Grade</label>
+              <input type="number" class="form-control " id="grade" placeholder="6th Grade/,.." name="grade" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
                 Should Be Above 5
-              </div>
+              </div> -->
               <label for="phn">Phone</label>
-              <input type="text" class="form-control " id="phn" placeholder="Enter with Contry code ex +91 987654321"
-                value="" required>
+              <input type="text" class="form-control " id="phn" placeholder="Enter without + & with Contry code ex 91987654321"
+                name="phn" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
                 Enter Valid Phone Number
               </div>
+            </div>
+            <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control " id="email" placeholder="myname12@gmail.com" value="" required>
+              <input type="email" class="form-control " id="email" placeholder="myname12@gmail.com" name="email" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
@@ -149,13 +176,35 @@
                 Enter Valid Emial Address
               </div>
             </div>
+            <div class="form-group">
+              <label for="timing">Give Your Timing</label>
+              <input type="text" class="form-control" placeholder="between 08am to 10pm" name="timing">
+              <small>Time will be confirmed by The Tutor and E-mail Will Be sent</small>
+            </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block"> Applay </button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block"> Book Your First Class</button>
       </form>
     </div>
   </div>
-  <footer></footer>
+  
+  <footer id="bg">
+   <div class="row">
+     <div class="col-3" id="bg-col">
+       <h1 id="title">Maths Tution</h1>
+       <h5 >Mr. Anthony Raj</h5>
+       <p >Maths Teacher</p>
+     </div>
+     <div class="col">
+     </div>
+   </div>
+  </footer>
+  <div class="foot">
+      <a  href="http://jeraldvictor.co.in" target="_blank">
+        <p> &copy; Jerald Victor </p>
+      </a>
+      All Rights Received
+  </div>
 </body>
 <script src="/javascripts/home.js"></script>
 
