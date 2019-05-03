@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <style>
+    .jumbotron{
+        background:lightpink;
+    }
+    .cent{
+        max-width: 400px;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="break-top"></div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center" id="title">Maths Tution</h1>
+            <br>
+            <h4 class="text-center under">Change Your Password</h4>
+            <br>
+            <div class="container cent">
+                <form method="POST" action="/update/password" autocomplete="off">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email" value="<%=list.userid%>" readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="pass">Password</label>
+                      <input type="password" class="form-control <%=crt%>" id="pass" name="pass" placeholder="Password">
+                      <div class="valid-feedback">
+                            Looks Good
+                        </div>
+                        <div class="invalid-feedback">
+                           Password Is Not Matching
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="pass1">Re - Password</label>
+                            <input type="password" class="form-control <%=crt%>" id="pass1" name="pass1" placeholder="Password">
+                            <div class="valid-feedback">
+                                Looks Good
+                            </div>
+                            <div class="invalid-feedback">
+                               Password Is Not Matching
+                            </div>
+                    </div>
+                    <div class="form-group" style="display:none">
+                        <label for="roll">id</label>
+                        <input type="text" class="form-control" id="roll" name="id" value="<%=list.id%>" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">Login</button>
+                  </form>                  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

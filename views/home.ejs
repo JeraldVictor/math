@@ -13,6 +13,7 @@
 <body>
     <div class="container">
         <div class="tr">
+            <a href="/update/password/<%=tid%>" class="btn btn-warning">Change Password</a>
             <a href="/logout" class="btn btn-danger">Logout</a>
         </div>
         <h1 class="text-center" id="title">Maths Tution</h1>
@@ -49,7 +50,7 @@
                     </div>
                 <%}else{%>
                     
-                <form action="/update" method="post" autocomplete="off">
+                <form action="/update/pending/<%=tid%>" method="post" autocomplete="off">
                 <input type="text" name="id" id="id" value="" style="display:none">
                 <div class="form-group">
                     <label for="list">Pending List</label>
@@ -83,6 +84,49 @@
                 <button type="submit"  class="btn btn-warning btn-lg btn-block">Update</button>
             </form>
         <%}%>
+        <hr>
+        <div class="list">
+            <form action="/update/syllabus/<%=tid%>" class="row" method="post">
+                <div class="col-8 form-group">
+                    <label for="">Add New syllabus</label>
+                    <input type="text" class="form-control" name="syllabus" placeholder="State Board">
+                </div>
+                <div class="col-4">
+                    <br>
+                    <button class="btn btn-success btn-lg btn-block">Include</button>
+                </div>
+            </form>
+            <form action="/update/topic/<%=tid%>" class="row" method="post">
+                <div class="col-8 form-group">
+                    <label for="">Add New Topic</label>
+                    <input type="text" class="form-control" name="topic" placeholder="Algebra">
+                </div>
+                <div class="col-4">
+                    <br>
+                    <button class="btn btn-success btn-lg btn-block">Include</button>
+                </div>
+            </form>
+            <form action="/update/std/<%=tid%>" class="row" method="post">
+                <div class="col-8 form-group">
+                    <label for="">Add Grade</label>
+                    <input type="text" class="form-control" name="topic" placeholder="6 , 12th std">
+                </div>
+                <div class="col-4">
+                    <br>
+                    <button class="btn btn-success btn-lg btn-block">Include</button>
+                </div>
+            </form>
+            <form action="/update/payment/<%=tid%>" class="row" method="post">
+                <div class="col-8 form-group">
+                    <label for="">Add New Payment Method</label>
+                    <input type="text" class="form-control" name="payment" placeholder="PayPal">
+                </div>
+                <div class="col-4">
+                    <br>
+                    <button class="btn btn-success btn-lg btn-block">Include</button>
+                </div>
+            </form>
+        </div>
             </div>
             <div class="col-3" id="scrll">
                 <p class="text-center"> <strong>Aproved Students</strong></p>

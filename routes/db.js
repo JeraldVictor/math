@@ -1,4 +1,22 @@
-let db = require('diskdb');
-db = db.connect('./DB/', ['users','booking']);
+const mysql      = require('mysql');
 
-module.exports = db;
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'jerald@11',
+  database : 'anthony'
+});
+ 
+connection.connect();
+
+// connection.query("select * from users",(err,list)=>{
+//   if(err){
+//     console.log(err)
+//   }else{
+//     console.log("ok ",list)
+//   }
+// })
+
+
+
+module.exports = connection;

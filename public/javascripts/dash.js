@@ -8,7 +8,7 @@ $("#list").ready(()=>{
         // console.log(data)
         $("#timing").val(data.timing)
         $("#date").val(data.date)
-        $("#id").val(data._id)
+        $("#id").val(data.id)
         $("#name").val(`${data.fname} ${data.lname}`)
     })
 })
