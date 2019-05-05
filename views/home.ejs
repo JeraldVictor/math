@@ -69,7 +69,7 @@
             <div class="col-6">
                 <%if(user.length < 1){%>
                     <div class="text-center alert alert-info" role="alert">
-                        No Pending Aproval
+                        No Pending List
                     </div>
                     <%}else{%>
 
@@ -99,8 +99,8 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select id="status" class="form-control" name="status">
-                                <option value="pending">Pending</option>
                                 <option value="aproved">Aproved</option>
+                                <option value="pending">Pending</option>
                             </select>
                         </div>
                     </div>
@@ -108,6 +108,11 @@
                 </form>
             <%}%>
             <hr>
+            <%if(classover.length < 1){%>
+                <div class="text-center alert alert-info" role="alert">
+                    No Aproval List
+                </div>
+                <%}else{%>
             <div class="fini">
                     <form action="/update/aproved" method="post" autocomplete="off">
                         <input type="text" name="id" id="id1" value="" style="display:none">
@@ -144,13 +149,14 @@
                 </form>
             </div>
             <hr>
+            <%}%>
             <div class="list" >
                 <h4 class="text-center">ADD Here</h4>
                 <form action="/update/syllabus" class="row" method="post">
                     <div class="col-8 form-group">
                         <label for="">Add New syllabus</label>
                         <input type="text" class="form-control" name="syllabus"
-                            placeholder="State Board">
+                            placeholder="State Board" required>
                     </div>
                     <div class="col-4">
                         <br>
@@ -161,7 +167,7 @@
                     <div class="col-8 form-group">
                         <label for="">Add New Topic</label>
                         <input type="text" class="form-control" name="topic"
-                            placeholder="Algebra">
+                            placeholder="Algebra" required>
                     </div>
                     <div class="col-4">
                         <br>
@@ -172,7 +178,7 @@
                     <div class="col-8 form-group">
                         <label for="">Add Grade</label>
                         <input type="text" class="form-control" name="topic"
-                            placeholder="6 , 12th std">
+                            placeholder="6 , 12th std" required>
                     </div>
                     <div class="col-4">
                         <br>
@@ -183,7 +189,7 @@
                     <div class="col-8 form-group">
                         <label for="">Add New Payment Method</label>
                         <input type="text" class="form-control" name="payment"
-                            placeholder="PayPal">
+                            placeholder="PayPal" required>
                     </div>
                     <div class="col-4">
                         <br>

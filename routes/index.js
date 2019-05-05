@@ -41,6 +41,7 @@ router.post("/", (req, res) => {
   let b = req.body;
   let userid = req.body.email
   let password = "math@me"
+  
   crypto.pbkdf2(password, 'salt', 10, 64, 'sha512', (err, hash) => {
     if (err) throw err;
     let record = {
@@ -50,8 +51,8 @@ router.post("/", (req, res) => {
       username:b.fname,
       roll: "student"
     };
-
-    db.query("INSERT INTO `users`(`userid`, `password`,`username`, `roll`, `id`) VALUES (?,?,?,?,?)", [record.userid, record.password, record.roll, record.id], (err) => {
+    console.log(record);
+    db.query("INSERT INTO `users`(`userid`, `password`,`username`, `roll`, `id`) VALUES(?,?,?,?,?)", [record.userid, record.password, record.username,record.roll, record.id], (err) => {
       if (err) {
         console.log("err ", err)
       } else {
@@ -79,15 +80,13 @@ router.post("/", (req, res) => {
               console.log("err1 ", err1)
             } else {
               console.log("val insertec on book")
-              let body = `Welcome <strong>${book.fname} ${book.lname}</strong> ! 
-            <br>
-            <br>
-            You are Registered now You will get a confirmation mail by Sir. Athony Raj or mail Him <strong>raj.anthony92@gmail.com</strong>
-            <br>
-            <br>
-            You can Login to your Account by your email <strong>${book.email}</strong> and temprory password as <strong>maths@me</strong>`
+              let body = `Welcome <strong>${book.fname} ${book.lname}</strong> !<br><br>You are Registered now You will get a confirmation mail by Sir. Athony Raj or mail Him <strong>raj.anthony92@gmail.com</strong><br><br>You can Login to your Account by your email <strong>${book.email}</strong> and temprory password as <strong>maths@me</strong>`
               let subject = "Maths Tution - Registation Completed"
               sendMail(userid, subject, body)
+              let sub1 = "Maths Tution - New Registation"
+              let bdy = `<strong>Hello Sir</strong><br><br><div>You Got New Registation by ${book.fname} ${book.lname}<br>You Need To Approve it.</div>`
+              let mailid = 'raj.anthony92@gmail.com'
+              sendMail(mailid, sub1, bdy)
               res.send(`<h1> Registered </h1> You will recive a mail from us. <br> <a href="/"> Back </a>`)
             }
           })
@@ -286,15 +285,13 @@ router.post("/new-booking",auth(), (req,res)=>{
           if (err1) {
             console.log("err1 ", err1)
           } else {
-            let body = `Welcome <strong>${book.fname} ${book.lname}</strong> ! 
-          <br>
-          <br>
-          You are Registered now You will get a confirmation mail by Sir. Athony Raj or mail Him <strong>raj.anthony92@gmail.com</strong>
-          <br>
-          <br>
-          You can Login to your Account by your email <strong>${book.email}</strong> and temprory password as <strong>maths@me</strong>`
+            let body = `Welcome <strong>${book.fname} ${book.lname}</strong> !<br><br>You are Registered now You will get a confirmation mail by Sir. Athony Raj or mail Him <strong>raj.anthony92@gmail.com</strong><br><br>With Regards <br> Athony Raj`
             let subject = "Maths Tution - Registation Completed"
             sendMail(userid, subject, body)
+            let sub1 = "Maths Tution - New Registation"
+            let bdy = `<strong>Hello Sir</strong><br><br><div>You Got New Registation by ${book.fname} ${book.lname}<br>You Need To Approve it.</div>`
+            let mailid = 'raj.anthony92@gmail.com'
+            sendMail(mailid, sub1, bdy)
             res.render("book-new",{msg:"Booked Wait For The Mail"})
           }
         })

@@ -41,6 +41,10 @@ router.post("/pending", auth(), (req, res) => {
           let subject = "Maths Tution - confirmation of Tution Timing"
           let email  =val[0].email
           sendMail(email, subject, body)
+          let sub1 = "Maths Tution - Approved Class on "+val[0].date
+            let bdy = `<strong>Hello Sir</strong><br><br><div>You <strong>Approved</strong> Class for ${val[0].fname} ${val[0].lname}<br> Date : <strong> ${val[0].date} </strong> Time : <strong> ${val[0].timing} </strong> </div>`
+            let mailid = 'raj.anthony92@gmail.com'
+            sendMail(mailid, sub1, bdy)
           res.redirect('/home/teacher/'+req.session.userId)
         }
       })
@@ -61,23 +65,7 @@ router.post("/aproved", auth(), (req, res) => {
           console.log(err)
         } else {
           // console.log(val)
-          let body = `Hello <strong>${val[0].fname} ${val[0].lname}</strong> ! 
-        <br>
-        <br>
-        Your  Class on ${val[0].date} is marked As Finished
-        <br>
-        class was handeled by <strong> Mr. Anthony Raj </strong>  at <strong> ${val[0].timing} </strong>
-        <br>
-        <br>
-        <br>
-        <strong>
-        Thank You
-        <br>
-        With Regards
-        <br>
-        Mr. Anthony Raj
-        </strong>
-        `
+          let body = `Hello <strong>${val[0].fname} ${val[0].lname}</strong> ! <br><br>Your  Class on ${val[0].date} is marked As Finished<br>class was handeled by <strong> Mr. Anthony Raj </strong>  at <strong> ${val[0].timing} </strong><br><br><br><strong>Thank You<br>With Regards<br>Mr. Anthony Raj</strong>`
           let subject = "Maths Tution - "+val[0].fname+" - Class Marked As Finished "
           let email  =val[0].email
           sendMail(email, subject, body)
