@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="">
+            <div class="tr">
+                <a href="/new-booking" class="btn btn-success">Book A Class</a>
+                <a href="/update/password" class="btn btn-warning">Change Password</a>
+                <a href="/logout" class="btn btn-danger">Logout</a>
+            </div>
+            <h1 class="text-center" id="title">Maths Tution</h1>
+            <p>Welcome <%=username%></p>
+            <div class="text-left">
+                Today  <%=today%>
+            </div>
+        </div>
+        <div class="approved">
+            <p class="text-center"><strong class="text-uppercase">Approved</strong> Be Ready For Class</p>
+            <table class="table table-success">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Given Timing</th>
+                        <th scope="col">Topic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(let i = 0 ;i<aproved.length;i++ ){%>
+                    <tr>
+                        <th scope="row"><%=i+1%></th>
+                        <td><%=aproved[i].date%></td>
+                        <td><%=aproved[i].timing%></td>
+                        <td><%=aproved[i].topic%></td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+        </div>
+        <div>
+            <p class="text-center"><strong class="text-uppercase">Pending</strong> Need To Be Approved</p>
+            <table class="table table-warning">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Given Timing</th>
+                        <th scope="col">Topic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(let i = 0 ;i<user.length;i++ ){%>
+                    <tr>
+                        <th scope="row"><%=i+1%></th>
+                        <td><%=user[i].date%></td>
+                        <td><%=user[i].timing%></td>
+                        <td><%=user[i].topic%></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+        <div class="finished">
+                <p class="text-center"><strong class="text-uppercase">Finished</strong>Classes</p>
+                <table class="table table-danger">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Timing</th>
+                            <th scope="col">Topic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(let i = 0 ;i<finished.length;i++ ){%>
+                        <tr>
+                            <th scope="row"><%=i+1%></th>
+                            <td><%=finished[i].date%></td>
+                            <td><%=finished[i].timing%></td>
+                            <td><%=finished[i].topic%></td>
+                        </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+            </div>
+    </div>
+</body>
+</html>

@@ -6,7 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "bcrypt": "^3.0.6",
     "bootstrap": "^4.3.1",
     "diskdb": "^0.1.17",
     "ejs": "^2.6.1",

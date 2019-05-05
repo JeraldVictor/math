@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>DashBoard</title>
-
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
@@ -12,12 +11,36 @@
 
 <body>
     <div class="container">
-        <div class="tr">
-            <a href="/update/password/<%=tid%>" class="btn btn-warning">Change Password</a>
-            <a href="/logout" class="btn btn-danger">Logout</a>
-        </div>
         <h1 class="text-center" id="title">Maths Tution</h1>
     </div>
+    <div class="text-center">
+      Today  <%=today%>
+    </div>
+    <nav class="sticky-top">
+        <ul>
+            <li>
+                <a href="#">Pending</a>
+            </li>
+            <li>
+                <a href="#aprove">aprove</a>
+            </li>
+            <li>
+                <a href="#add">add</a>
+            </li>
+            <li>
+                <a href="#rm">remove</a>
+            </li>
+            <li>
+                <a href="/api">All User</a>
+            </li>
+            <li>
+                <a href="/update/password">Change Password</a>
+            </li>
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
     <div class="main">
         <div class="row">
             <div class="col-3" id="scrll">
@@ -48,103 +71,204 @@
                     <div class="text-center alert alert-info" role="alert">
                         No Pending Aproval
                     </div>
-                <%}else{%>
-                    
-                <form action="/update/pending/<%=tid%>" method="post" autocomplete="off">
-                <input type="text" name="id" id="id" value="" style="display:none">
-                <div class="form-group">
-                    <label for="list">Pending List</label>
-                    <select class="form-control" id="list">
-                        <%for(let i = 0 ;i<user.length;i++ ){%>
-                            <option value="<%=user[i].id%>" ><%=user[i].fname%></option>
-                        <%}%>
-                    </select>
-                </div>
-                <div class="">
-                    <div class="form-group">
-                        <label for="name">Student Name</label>
-                        <input type="text" class="form-control" name="name" id="name" value="" readonly>
+                    <%}else{%>
+
+                    <form action="/update/pending" method="post" autocomplete="off">
+                        <input type="text" name="id" id="id" value="" style="display:none">
+                        <div class="form-group">
+                                <h4 class="text-center">Pending List</h4>
+                            <select class="form-control" id="list">
+                                <%for(let i = 0 ;i<user.length;i++ ){%>
+                                <option value="<%=user[i].id%>"><%=user[i].fname%></option>
+                                <%}%>
+                            </select>
+                        </div>
+                    <div class="">
+                        <div class="form-group">
+                            <label for="name">Student Name</label>
+                            <input type="text" class="form-control" name="name" id="name" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Time student Applied</label>
+                            <input type="text" value="" name="date" id="date" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="timing">Change Time To Your Time Table</label>
+                            <input type="text" value="" name="timing" id="timing" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status" class="form-control" name="status">
+                                <option value="pending">Pending</option>
+                                <option value="aproved">Aproved</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="date">Time student Applied</label>
-                        <input type="text" value="" name="date" id="date" class="form-control" readonly>
+                    <button type="submit" id="aprove"  class="btn btn-warning btn-lg btn-block">Update</button>
+                </form>
+            <%}%>
+            <hr>
+            <div class="fini">
+                    <form action="/update/aproved" method="post" autocomplete="off">
+                        <input type="text" name="id" id="id1" value="" style="display:none">
+                        <div class="form-group">
+                                <h4 class="text-center">Aproved List</h4>
+                            <select class="form-control" id="list1">
+                                <%for(let i = 0 ;i<classover.length;i++ ){%>
+                                <option value="<%=classover[i].id%>"><%=classover[i].fname%></option>
+                                <%}%>
+                            </select>
+                        </div>
+                    <div class="">
+                        <div class="form-group">
+                            <label for="name">Student Name</label>
+                            <input type="text" class="form-control" name="name" id="name1" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Time student Applied</label>
+                            <input type="text" value="" name="date" id="date1" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="timing">Change Time To Your Time Table</label>
+                            <input type="text" value="" name="timing" id="timing1" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status1" class="form-control" name="status">
+                                <option value="Finished">Finished</option>
+                                <option value="aproved">Aproved</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="timing">Change Time To Your Time Table</label>
-                        <input type="text" value="" name="timing" id="timing" class="form-control">
+                    <button type="submit" id="add"  class="btn btn-info btn-lg btn-block">Update</button>
+                </form>
+            </div>
+            <hr>
+            <div class="list" >
+                <h4 class="text-center">ADD Here</h4>
+                <form action="/update/syllabus" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">Add New syllabus</label>
+                        <input type="text" class="form-control" name="syllabus"
+                            placeholder="State Board">
                     </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select id="status" class="form-control" name="status">
-                            <option value="pending">Pending</option>
-                            <option value="aproved">Aproved</option>
+                    <div class="col-4">
+                        <br>
+                        <button class="btn btn-success btn-lg btn-block">Add</button>
+                    </div>
+                </form>
+                <form action="/update/topic" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">Add New Topic</label>
+                        <input type="text" class="form-control" name="topic"
+                            placeholder="Algebra">
+                    </div>
+                    <div class="col-4">
+                        <br>
+                        <button class="btn btn-success btn-lg btn-block">Add</button>
+                    </div>
+                </form>
+                <form action="/update/std" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">Add Grade</label>
+                        <input type="text" class="form-control" name="topic"
+                            placeholder="6 , 12th std">
+                    </div>
+                    <div class="col-4">
+                        <br>
+                        <button class="btn btn-success btn-lg btn-block">Add</button>
+                    </div>
+                </form>
+                <form action="/update/payment" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">Add New Payment Method</label>
+                        <input type="text" class="form-control" name="payment"
+                            placeholder="PayPal">
+                    </div>
+                    <div class="col-4">
+                        <br>
+                        <button id="rm" class="btn btn-success btn-lg btn-block">Add</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div class="list">
+                <h4 class="text-center">Remove Here</h4>
+                <form action="/update/syllabus/rm" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">syllabus</label>
+                        <select class="form-control" id="list" name="syllabus">
+                            <% for(let i = 0 ;i<list.topic.length;i++ ){%>
+                            <option value="<%=list.syllabus[i]%>"><%=list.syllabus[i]%></option>
+                            <%}%>
                         </select>
                     </div>
-                </div>
-                <button type="submit"  class="btn btn-warning btn-lg btn-block">Update</button>
-            </form>
-        <%}%>
-        <hr>
-        <div class="list">
-            <form action="/update/syllabus/<%=tid%>" class="row" method="post">
-                <div class="col-8 form-group">
-                    <label for="">Add New syllabus</label>
-                    <input type="text" class="form-control" name="syllabus" placeholder="State Board">
-                </div>
-                <div class="col-4">
-                    <br>
-                    <button class="btn btn-success btn-lg btn-block">Include</button>
-                </div>
-            </form>
-            <form action="/update/topic/<%=tid%>" class="row" method="post">
-                <div class="col-8 form-group">
-                    <label for="">Add New Topic</label>
-                    <input type="text" class="form-control" name="topic" placeholder="Algebra">
-                </div>
-                <div class="col-4">
-                    <br>
-                    <button class="btn btn-success btn-lg btn-block">Include</button>
-                </div>
-            </form>
-            <form action="/update/std/<%=tid%>" class="row" method="post">
-                <div class="col-8 form-group">
-                    <label for="">Add Grade</label>
-                    <input type="text" class="form-control" name="topic" placeholder="6 , 12th std">
-                </div>
-                <div class="col-4">
-                    <br>
-                    <button class="btn btn-success btn-lg btn-block">Include</button>
-                </div>
-            </form>
-            <form action="/update/payment/<%=tid%>" class="row" method="post">
-                <div class="col-8 form-group">
-                    <label for="">Add New Payment Method</label>
-                    <input type="text" class="form-control" name="payment" placeholder="PayPal">
-                </div>
-                <div class="col-4">
-                    <br>
-                    <button class="btn btn-success btn-lg btn-block">Include</button>
-                </div>
-            </form>
-        </div>
+                    <div class="col-4">
+                        <br>
+                        <button class="btn btn-danger btn-lg btn-block">Remove</button>
+                    </div>
+                </form>
+                <form action="/update/topic/rm" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">Topic</label>
+                        <select class="form-control" id="list" name="topic">
+                                <% for(let i = 0 ;i<list.topic.length;i++ ){%>
+                                <option value="<%=list.topic[i]%>"><%=list.topic[i]%></option>
+                                <%}%>
+                            </select>
+                    </div>
+                    <div class="col-4">
+                        <br>
+                        <button class="btn btn-danger btn-lg btn-block">Remove</button>
+                    </div>
+                </form>
+                <form action="/update/std/rm" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">Grade</label>
+                        <select class="form-control" id="list" name="std">
+                                <% for(let i = 0 ;i<list.std.length;i++ ){%>
+                                <option value="<%=list.std[i]%>"><%=list.std[i]%></option>
+                                <%}%>
+                            </select>
+                    </div>
+                    <div class="col-4">
+                        <br>
+                        <button class="btn btn-danger btn-lg btn-block">Remove</button>
+                    </div>
+                </form>
+                <form action="/update/payment/rm" class="row" method="post">
+                    <div class="col-8 form-group">
+                        <label for="">Payment Method</label>
+                        <select class="form-control" id="list" name="payment">
+                                <% for(let i = 0 ;i<list.payment.length;i++ ){%>
+                                <option value="<%=list.payment[i]%>"><%=list.payment[i]%></option>
+                                <%}%>
+                            </select>
+                    </div>
+                    <div class="col-4">
+                        <br>
+                        <button class="btn btn-danger btn-lg btn-block">Remove</button>
+                    </div>
+                </form>
             </div>
+        </div>
             <div class="col-3" id="scrll">
                 <p class="text-center"> <strong>Aproved Students</strong></p>
                 <table class="table">
                     <thead class="thead-dark">
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Detials</th>
-                    </thead>
-                    <tbody>
-                        <%for(let i=0;i<aproved.length ; i++){%>
-                            <tr>
-                                <th scope="row"><%=i+1%></th>
-                                <td><%=aproved[i].fname%></td>
-                                <td><a href="/api/view/<%=aproved[i].uid%>" class="btn btn-success">view</a></td>
-                            </tr>
-                        <%}%>
-                    </tbody>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Detials</th>
+                </thead>
+                <tbody>
+                    <%for(let i=0;i<aproved.length ; i++){%>
+                    <tr>
+                        <th scope="row"><%=i+1%></th>
+                        <td><%=aproved[i].fname%></td>
+                        <td><a href="/api/view/<%=aproved[i].uid%>" class="btn btn-success">view</a></td>
+                    </tr>
+                    <%}%>
+                </tbody>
                 </table>
             </div>
         </div>

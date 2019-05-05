@@ -13,11 +13,12 @@
     <div class="container">
         <br>
         <div class="row text-center">
-            <div class="col"><a href="/home" class="btn btn-warning">Home</a></div>
-            <div class="col"><h1 class="text-center" id="title">Maths Tution</h1></div>
-            <div class="col"><a href="#" class="btn btn-warning">All Users</a></div>
+            <div class="col-3">
+                <button class="btn btn-warning" onclick="window.history.go(-1); return false;">Back</button>
+            </div>
+            <div class="col-6"><h1 class="text-center" id="title">Maths Tution</h1></div>
+            <div class="col-3"></div>
         </div>
-            
            
         <div class="jumbotron">
                 <h4 class="text-center" style="text-transform:capitalize;"><%=list.fname%> <%=list.lname%></h4>
@@ -51,6 +52,32 @@
                     <label for="">Year</label>
                     <input type="text" class="form-control" readonly value="<%=list.year%>" id="">
                 </div>
+            </div>
+            <br>
+            <hr>
+            <h4 class="text-center">booking made</h4>
+            <p>No . of Class Booked : <strong><%=user.booking%></strong> </p>
+            <div class="extra">
+                <table class="table text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Topic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(var i = 0;i<user.booking;i++){%>
+                        <tr>
+                        <th scope="row"><%=i+1%></th>
+                        <td><%=user.date[i]%></td>
+                        <td><%=user.time[i]%></td>
+                        <td><%=user.topic[i]%></td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

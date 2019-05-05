@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+</head>
+<body>
+        <div class="container">
+                <h1 class="text-center" id="title">Maths Tution</h1>
+            </div>
+    <div class="container">
+        <br>
+        <h4>List of Students</h4>
+        <br>
+        <button class="btn btn-warning btn-lg" onclick="window.history.go(-1); return false;">Back</button>
+        <br>
+        <br>
+        <div class="jumbotron">
+                <table class="table text-center">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">View</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <%for(let i = 0;i<user.length;i++){%>
+                          <tr>
+                            <th scope="row"><%=i+1%></th>
+                            <td><%=user[i].username%></td>
+                            <td>
+                                <a href="/api/view/<%=user[i].id%>" class="btn btn-info btn-lg">
+                                    <img src="https://img.icons8.com/metro/26/000000/visible.png">
+                                </a>
+                            </td>
+                          </tr>
+                        <%}%>
+                        </tbody>
+                      </table>
+        </div>
+    </div>
+</body>
+</html>

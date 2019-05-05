@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book A seat</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+  <!-- //jq ui -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/ui/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/stylesheets/jq-ui.css">
+</head>
+<body>
+    <br><br>
+        <div class="container text-center">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary btn-lg btn-block" onclick="window.history.go(-1); return false;">Back</button>
+                    </div>
+                    <div class="col">
+                        <h1 class="text-center" id="title">Maths Tution</h1>
+                    </div>
+                    <div class="col">
+                        <a href="/logout" class="btn btn-danger btn-lg btn-block">Logout</a>
+                    </div>
+                </div>
+        </div>
+        <div class="container">
+            <br>
+            <% if(msg!=null){%>
+                <div id="flash" class="text-center alert alert-success">
+                    <%=msg%>
+                </div>
+            <%}%>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <form action="/new-booking" method="post">
+                    <div class="input-group date" data-provide="datepicker">
+                        <input required type="text" name="date" class="form-control datepicker" placeholder="DD-MM-YYY" id="date">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><img src="https://img.icons8.com/metro/26/000000/planner.png"></span>
+                        </div>
+                        <div class="valid-feedback">
+                            Looks Good
+                        </div>
+                        <div class="invalid-feedback">
+                            Give correct Date or Date Alredy Booked
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="timing">Give Your Timing</label>
+                        <input required type="text" class="form-control" placeholder="between 08am to 10pm" name="timing">
+                        <small>Time will be confirmed by The Tutor and E-mail Will Be sent</small>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Book</button>
+                </form>
+                </div>
+                <div class="col">
+                    <h6 class="text-center">Booked Dates</h6>
+                    <span style="color:red;"> * note :</span> <span> These Days you Can't Book for class Because alredy Booked
+                    or May be Holiday</span>
+                    <br>
+                    <br>
+                    <div class="text-center srolll">
+                    <table class="table booked">
+                        <tbody></tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="/javascripts/home.js"></script>
+</body>
+</html>

@@ -84,3 +84,37 @@ footer{
 .cardimg{
     margin-top: 10px;
 }
+.nav a{
+    color:white;
+    text-align: center;
+}
+.navbar{
+    display: inline;
+}
+nav ul {
+    padding-left: 30%;
+    list-style-type: none;
+    margin: 0;
+    /* padding: 0; */
+    overflow: hidden;
+    background-color: #333;
+}
+  
+ nav li {
+    float: left;
+  }
+  
+ nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+ nav li a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #111;
+  }
