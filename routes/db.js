@@ -1,14 +1,5 @@
 const mysql      = require('mysql');
 
-// const connection = mysql.createConnection({
-//   // host     : '192.168.1.5',
-//   host     :"localhost",
-//   port:3306,
-//   user     : 'root',
-//   password : '',
-//   database : 'anthony'
-// });
-
 const connection = mysql.createConnection({
   host     : 'localhost',
   port:3306,
@@ -24,5 +15,7 @@ connection.connect((err)=>{
     console.log("ok mysql connected")
   }
 });
-
+setInterval(function () {
+  connection.query('SELECT 1');
+}, 5000);
 module.exports = connection;

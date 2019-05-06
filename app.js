@@ -10,13 +10,6 @@ const app = express();
 
 var MySQLStore = require("express-mysql-session")(session);
 
-// var options = {
-//     host: 'localhost',
-//     port: 3306,
-//     user: 'root',
-//     password: '',
-//     database: 'anthony'
-// };
 var options = {
   host: "localhost",
   port:3306,
@@ -35,13 +28,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("trust proxy", 1);
-// app.use(session({
-//   secret: 'JeraldVictor',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: { maxAge: 10000000 }
-// }));
-
 app.use(
   session({
     key: "session_cookie_name",
