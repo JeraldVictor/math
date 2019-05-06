@@ -10,12 +10,20 @@ const app = express();
 
 var MySQLStore = require("express-mysql-session")(session);
 
+// var options = {
+//   host: "localhost",
+//   port:3306,
+//   user: "jeraldvi_jerald",
+//   password: "Johnpeter@17",
+//   database: "jeraldvi_anthony"
+// };
+
 var options = {
-  host: "localhost",
+  host     : 'localhost',
   port:3306,
-  user: "jeraldvi_jerald",
-  password: "Johnpeter@17",
-  database: "jeraldvi_anthony"
+  user     : 'root',
+  password : '',
+  database : 'anthony'
 };
 var sessionStore = new MySQLStore(options);
 

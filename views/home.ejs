@@ -22,13 +22,13 @@
                 <a href="#">Pending</a>
             </li>
             <li>
-                <a href="#aprove">aprove</a>
+                <a href="#aprove">Approved</a>
             </li>
             <li>
-                <a href="#add">add</a>
+                <a href="#add">Add</a>
             </li>
             <li>
-                <a href="#rm">remove</a>
+                <a href="#rm">Remove</a>
             </li>
             <li>
                 <a href="/api">All User</a>
@@ -94,12 +94,12 @@
                         </div>
                         <div class="form-group">
                             <label for="timing">Change Time To Your Time Table</label>
-                            <input type="text" value="" name="timing" id="timing" class="form-control">
+                            <input type="text" value="" name="timing" id="timing" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select id="status" class="form-control" name="status">
-                                <option value="aproved">Aproved</option>
+                                <option value="approved">Approved</option>
                                 <option value="pending">Pending</option>
                             </select>
                         </div>
@@ -117,7 +117,7 @@
                     <form action="/update/aproved" method="post" autocomplete="off">
                         <input type="text" name="id" id="id1" value="" style="display:none">
                         <div class="form-group">
-                                <h4 class="text-center">Aproved List</h4>
+                                <h4 class="text-center">Approved List</h4>
                             <select class="form-control" id="list1">
                                 <%for(let i = 0 ;i<classover.length;i++ ){%>
                                 <option value="<%=classover[i].id%>"><%=classover[i].fname%></option>
@@ -141,7 +141,7 @@
                             <label for="status">Status</label>
                             <select id="status1" class="form-control" name="status">
                                 <option value="Finished">Finished</option>
-                                <option value="aproved">Aproved</option>
+                                <option value="approved">Approved</option>
                             </select>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                 <form action="/update/std" class="row" method="post">
                     <div class="col-8 form-group">
                         <label for="">Add Grade</label>
-                        <input type="text" class="form-control" name="topic"
+                        <input type="text" class="form-control" name="std"
                             placeholder="6 , 12th std" required>
                     </div>
                     <div class="col-4">
@@ -259,7 +259,7 @@
             </div>
         </div>
             <div class="col-3" id="scrll">
-                <p class="text-center"> <strong>Aproved Students</strong></p>
+                <p class="text-center"> <strong>Approved Students</strong></p>
                 <table class="table">
                     <thead class="thead-dark">
                     <th scope="col">#</th>
