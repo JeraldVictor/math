@@ -43,13 +43,13 @@ footer{
 .under{
     text-decoration: underline;
 }
-#bg{
+/* #bg{
     /* width: 100%; */
-    /* background-image: url("https://ak4.picdn.net/shutterstock/videos/6282884/thumb/1.jpg") */
+    /* background-image: url("https://ak4.picdn.net/shutterstock/videos/6282884/thumb/1.jpg")
     background-image: url("../images/math-symbol.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
+} */
 
 #bg-col{
     background: black;

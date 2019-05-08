@@ -26,14 +26,9 @@ let getDate=()=>{
 }
 /* GET home page. */
 router.get('/', (req, res) => {
-  let list = diskdb.general.find({ _id: "3e429a294568490abbdfd36fb3235b48" })
   res.render('index',
     {
-      title: 'Maths Tution | Anthony Raj',
-      std: list[0].std,
-      topic: list[0].topic,
-      syllabus: list[0].syllabus,
-      payment: list[0].payment
+      title: 'Maths Tution | Anthony Raj'
     });
 });
 
@@ -97,6 +92,16 @@ router.post("/", (req, res) => {
 
 router.get("/login", (req, res) => {
   res.render("login", { msg: null });
+})
+
+router.get('/signup',(req,res)=>{
+  let list = diskdb.general.find({ _id: "3e429a294568490abbdfd36fb3235b48" })
+  res.render("signup",{
+    std: list[0].std,
+    topic: list[0].topic,
+    syllabus: list[0].syllabus,
+    payment: list[0].payment
+  })
 })
 
 router.post("/login", (req, res) => {
@@ -254,7 +259,11 @@ router.get("/avilabe", (req, res) => {
 })
 
 router.get("/new-booking",auth(),(req,res)=>{
-  res.render("book-new",{msg:null})
+  let list = diskdb.general.find({ _id: "3e429a294568490abbdfd36fb3235b48" })
+  res.render("book-new",{msg:null,std: list[0].std,
+    topic: list[0].topic,
+    syllabus: list[0].syllabus,
+    payment: list[0].payment})
 })
 
 router.post("/new-booking",auth(), (req,res)=>{
@@ -273,9 +282,9 @@ router.post("/new-booking",auth(), (req,res)=>{
         skypeid: b.skype,
         date: req.body.date,
         payment: b.payment,
-        topic: b.topic,
-        year: b.year,
-        syllabus: b.syllabus,
+        topic: req.body.topic,
+        year: req.body.yr,
+        syllabus: req.body.syllabus,
         timing: req.body.timing,
         status: "pending"
       }
@@ -287,12 +296,16 @@ router.post("/new-booking",auth(), (req,res)=>{
           } else {
             let body = `Welcome <strong>${book.fname} ${book.lname}</strong> !<br><br>You are Registered now You will get a confirmation mail by Sir. Athony Raj or mail Him <strong>raj.anthony92@gmail.com</strong><br><br>With Regards <br> Athony Raj`
             let subject = "Maths Tution - Registation Completed"
-            sendMail(userid, subject, body)
+            sendMail(book.email, subject, body)
             let sub1 = "Maths Tution - New Registation"
             let bdy = `<strong>Hello Sir</strong><br><br><div>You Got New Registation by ${book.fname} ${book.lname}<br>You Need To Approve it.</div>`
             let mailid = 'raj.anthony92@gmail.com'
             sendMail(mailid, sub1, bdy)
-            res.render("book-new",{msg:"Booked Wait For The Mail"})
+            let list = diskdb.general.find({ _id: "3e429a294568490abbdfd36fb3235b48" })
+  res.render("book-new",{msg:"Booked Wait For The Mail",std: list[0].std,
+    topic: list[0].topic,
+    syllabus: list[0].syllabus,
+    payment: list[0].payment})
           }
         })
     }

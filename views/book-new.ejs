@@ -37,6 +37,39 @@
             <div class="row">
                 <div class="col">
                     <form action="/new-booking" method="post">
+                        <div class="form-group">
+                                <label for="year" class="col-form-label">Choose Year</label>
+                                <select class="form-control is-valid" id="year" name="yr">
+                                  <%for(let i = 0;i<std.length;i++){%>
+                                  <option value="<%=std[i]%>"><%=std[i]%></option>
+                                  <%}%>
+                                </select>
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="topics" class="col-form-label">Choose Topics</label>
+                                <select class="form-control is-valid" id="topics" name="topic">
+                                    <%for(let i = 0;i<topic.length;i++){%>
+                                  <option value="<%=topic[i]%>"><%=topic[i]%></option>
+                                  <%}%>
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="syllabus">Syllabus</label>
+                                <select class="form-control is-valid" id="topics" name="syllabus">
+                                    <%for(let i = 0;i<syllabus.length;i++){%>
+                                  <option value="<%=syllabus[i]%>"><%=syllabus[i]%></option>
+                                  <%}%>
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                              </div>
                     <div class="input-group date" data-provide="datepicker">
                         <input required type="text" name="date" class="form-control datepicker" placeholder="DD-MM-YYY" id="date">
                         <div class="input-group-append">
